@@ -1,7 +1,5 @@
-#include <iostream>
 #include "ConvexHull.h"
-#include <vector>
-#include <math.h>
+#include<bits/stdc++.h>
 using namespace std;
 #define PI 3.14159265
 
@@ -25,23 +23,25 @@ void ConvexHull::grahamScan(){
 		}
 	}
 
-	
-
-	double angles[points.size()][2];
-	angles[min][0] = 0.0;
-	angles[min][1] = min;
+	vector< pair <double,int> > angles;
+	angles.push_back(make_pair(0,min));
 
 	for (int i = 0; i < points.size(); ++i)
 	{
 		if(i != min){
 			double slope = (points[i].y-points[min].y) / (points[i].x-points[min].x);
-			angles[i][0] =  atan (slope) * 180 / PI;
-			angles[i][1] = i;
+			angles.push_back(make_pair(atan (slope) * 180 / PI,i));
 		}
 
-		cout << angles[i][0] << "  " << angles[i][1] << endl;	
+		cout << angles[i].first << "  " << angles[i].second << endl;	
 	}
 
+	sort(angles.begin(),angles.end());
+
+	for (vector<pair <double,int>>::iterator i = angles.begin(); i != angles.end(); ++i)
+	{
+		cout << (*i).first << "  " << (*i).second << endl;
+	}
 
 }
 
