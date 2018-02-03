@@ -1,4 +1,4 @@
-#include <vector>
+#include<bits/stdc++.h>
 using namespace std;
 
 
@@ -24,8 +24,10 @@ private:
 	vector<Node> points;
 public:
 	ConvexHull(vector<Node> v);
-	void grahamScan();
+	vector< pair<int,int> > grahamScan();
 	void jarvisMarch();
 	void ksAlgo();
+	int turn_check(int p, int q, int r);
+	double eudist(int a,int b);
 };
 
