@@ -11,8 +11,8 @@ int ConvexHull::turn_check(int p, int q, int r){
 	int val = (points[q].y - points[p].y) * (points[r].x - points[q].x) -
               (points[q].x - points[p].x) * (points[r].y - points[q].y);
  
-    if (val == 0) return 0;  // colinear
-    return (val > 0)? 1: 2; // clock or counterclock wise
+    if (val == 0) return 0;  
+    return (val > 0)? 1: 2;
 }
 
 
@@ -80,12 +80,13 @@ vector< pair<int,int> > ConvexHull::grahamScan(){
 		int now = angles[i].second;
 		
 		int ori = turn_check(hull[1],hull[0],now);
-		//If left turn
-		if(ori == 2){
-			hull.push_front(now);
-		}else{
+
+		//If right turn
+		if(ori == 1){
 			hull.pop_front();
 			i--;
+		}else{
+			hull.push_front(now);
 		}
 
 	}
@@ -102,7 +103,61 @@ vector< pair<int,int> > ConvexHull::grahamScan(){
 
 }
 
-void ConvexHull::jarvisMarch(){
+vector< pair<int,int> > ConvexHull::jarvisMarch(){
+	int min=0;
+	for (vector<Node>::iterator i = points.begin(); i != points.end(); ++i)
+	{
+		if((*i).y < points[min].y){
+			min = i - points.begin();
+		}else if((*i).y == points[min].y){
+			if((*i).x < points[min].x){
+				min = i - points.begin();
+			}
+		}
+	}
+
+	int now,minIndex,minAng;
+	deque<int> hull;
+	hull.push_front(min);
+	points[min].valid =false;
+	now = min;
+	do{
+		minAng = 360;minIndex = -1;
+		for (int i = 0; i < points.size(); ++i)
+		{
+			if(i != now && points[i].valid){
+				double slope = (points[i].y-points[now].y) / (points[i].x-points[now].x);
+				double temp = atan (slope) * 180 / PI;
+
+				cout << now << " " << i << " " << temp << endl;
+				
+				if(temp<minAng ){
+					minAng = temp;
+					minIndex = i;
+				}
+			}	
+		}
+
+		if(minIndex == -1)
+			break;
+
+		hull.push_front(minIndex);
+		points[minIndex].valid = false;
+		now=hull[0];
+	}while(now != min);
+
+	vector< pair<int,int> > edges;
+	for (int i = 0; i < hull.size()-1; ++i)
+	{
+		edges.push_back(make_pair(hull[i],hull[i+1]));
+		cout << hull[i] << endl;
+	}
+	cout << hull.back() << endl;
+	edges.push_back(make_pair(hull.back(),hull.front()));
+	
+
+
+	return edges;
 
 }
 

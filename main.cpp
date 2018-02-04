@@ -24,7 +24,7 @@ int main(int argc, char const *argv[])
 	input.close();
 
 	ConvexHull ch(points);
-	vector< pair<int,int> > edges = ch.grahamScan();
+	vector< pair<int,int> > edges = ch.jarvisMarch();
 
 	ofstream out ("ans1.txt");
 

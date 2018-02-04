@@ -25,7 +25,7 @@ private:
 public:
 	ConvexHull(vector<Node> v);
 	vector< pair<int,int> > grahamScan();
-	void jarvisMarch();
+	vector< pair<int,int> > jarvisMarch();
 	void ksAlgo();
 	int turn_check(int p, int q, int r);
 	double eudist(int a,int b);
