@@ -116,43 +116,29 @@ vector< pair<int,int> > ConvexHull::jarvisMarch(){
 		}
 	}
 
-	int now,minIndex,minAng;
+	int now,next;
 	deque<int> hull;
-	hull.push_front(min);
-	points[min].valid =false;
+	
 	now = min;
 	do{
-		minAng = 360;minIndex = -1;
+		hull.push_front(now);
+
+		next=(now+1)%points.size();
 		for (int i = 0; i < points.size(); ++i)
 		{
-			if(i != now && points[i].valid){
-				double slope = (points[i].y-points[now].y) / (points[i].x-points[now].x);
-				double temp = atan (slope) * 180 / PI;
-
-				cout << now << " " << i << " " << temp << endl;
-				
-				if(temp<minAng ){
-					minAng = temp;
-					minIndex = i;
-				}
-			}	
+			if (turn_check(now, i, next) == 2)
+               next = i;
 		}
 
-		if(minIndex == -1)
-			break;
-
-		hull.push_front(minIndex);
-		points[minIndex].valid = false;
-		now=hull[0];
+		now = next;
+		
 	}while(now != min);
 
 	vector< pair<int,int> > edges;
 	for (int i = 0; i < hull.size()-1; ++i)
 	{
 		edges.push_back(make_pair(hull[i],hull[i+1]));
-		cout << hull[i] << endl;
 	}
-	cout << hull.back() << endl;
 	edges.push_back(make_pair(hull.back(),hull.front()));
 	
 
