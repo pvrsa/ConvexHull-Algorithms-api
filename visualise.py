@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 
 
 
-m = np.loadtxt("coords1.txt",skiprows=1)
+m = np.loadtxt("coords3.txt",skiprows=1)
 edges = np.loadtxt("ans1.txt",dtype=np.int)
 
 x,y = m.T

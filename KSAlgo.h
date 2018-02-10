@@ -3,6 +3,13 @@
 using namespace std;
 
 
+/**
+ * Calculate the upperhull given pmin,pmax,Set of points T
+ * @param umin[index of point 'pumin']
+ * @param umax[index of point 'pumax']
+ * @param T[Set of points represented in pair of (X-coordinate,index) fashion]
+ * @return [vector of vertices in upperhull in clockwise manner] 
+ */
 vector<int> ConvexHull::UPPERHULL(int umin,int umax,vector< pair<double,int> > T)
 {
 	
@@ -70,7 +77,12 @@ vector<int> ConvexHull::UPPERHULL(int umin,int umax,vector< pair<double,int> > T
 
 }
 
-
+/**
+ * Calculate the upper bridge given the median(supporting line) and Set of points
+ * @param T[Set of points for which Upperbridge has to be formed]
+ * @param median[index of point which is median for set of points]
+ * @return [pair of int giving the index of points which form the upperbridge]
+ */
 pair<int,int> ConvexHull::UPPERBRIDGE(vector< pair<double,int> > T,int median)
 {
 	if(T.size() == 2){

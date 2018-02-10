@@ -1,0 +1,59 @@
+\hypertarget{classConvexHull}{}\section{Convex\+Hull Class Reference}
+\label{classConvexHull}\index{Convex\+Hull@{Convex\+Hull}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classConvexHull_a9cdd501596800922407e500a72602b2a}{Convex\+Hull} (vector$<$ \hyperlink{classNode}{Node} $>$ v)
+\item 
+vector$<$ pair$<$ int, int $>$ $>$ \hyperlink{classConvexHull_a2d754f21119fa578681c9350a61240dc}{graham\+Scan} ()
+\item 
+vector$<$ pair$<$ int, int $>$ $>$ \hyperlink{classConvexHull_a56d248ed5b470d33f2036aae04c597b0}{jarvis\+March} ()
+\item 
+vector$<$ pair$<$ int, int $>$ $>$ \hyperlink{classConvexHull_afee5633718d639bc8e94b123eea4c168}{ks\+Algo} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classConvexHull_a9cdd501596800922407e500a72602b2a}\label{classConvexHull_a9cdd501596800922407e500a72602b2a}} 
+\index{Convex\+Hull@{Convex\+Hull}!Convex\+Hull@{Convex\+Hull}}
+\index{Convex\+Hull@{Convex\+Hull}!Convex\+Hull@{Convex\+Hull}}
+\subsubsection{\texorpdfstring{Convex\+Hull()}{ConvexHull()}}
+{\footnotesize\ttfamily Convex\+Hull\+::\+Convex\+Hull (\begin{DoxyParamCaption}\item[{vector$<$ \hyperlink{classNode}{Node} $>$}]{v }\end{DoxyParamCaption})}
+
+Constructor to initialise points, find bottom most point 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classConvexHull_a2d754f21119fa578681c9350a61240dc}\label{classConvexHull_a2d754f21119fa578681c9350a61240dc}} 
+\index{Convex\+Hull@{Convex\+Hull}!graham\+Scan@{graham\+Scan}}
+\index{graham\+Scan@{graham\+Scan}!Convex\+Hull@{Convex\+Hull}}
+\subsubsection{\texorpdfstring{graham\+Scan()}{grahamScan()}}
+{\footnotesize\ttfamily vector$<$ pair$<$ int, int $>$ $>$ Convex\+Hull\+::graham\+Scan (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Implementation of Graham\textquotesingle{}s Scan Algorithm -\/ Time Complexity -\/ O(n$\ast$log(n)) -\/ n = number of vertices \begin{DoxyReturn}{Returns}
+\mbox{[}vector of edges represented as a pair of verices\mbox{]} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classConvexHull_a56d248ed5b470d33f2036aae04c597b0}\label{classConvexHull_a56d248ed5b470d33f2036aae04c597b0}} 
+\index{Convex\+Hull@{Convex\+Hull}!jarvis\+March@{jarvis\+March}}
+\index{jarvis\+March@{jarvis\+March}!Convex\+Hull@{Convex\+Hull}}
+\subsubsection{\texorpdfstring{jarvis\+March()}{jarvisMarch()}}
+{\footnotesize\ttfamily vector$<$ pair$<$ int, int $>$ $>$ Convex\+Hull\+::jarvis\+March (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Implementation of Jarvis March Algorithm -\/ Time Complexity -\/ O(n$\ast$h) -\/ n = number of vertices, h = number of points in hull \begin{DoxyReturn}{Returns}
+\mbox{[}vector of edges represented as a pair of verices\mbox{]} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classConvexHull_afee5633718d639bc8e94b123eea4c168}\label{classConvexHull_afee5633718d639bc8e94b123eea4c168}} 
+\index{Convex\+Hull@{Convex\+Hull}!ks\+Algo@{ks\+Algo}}
+\index{ks\+Algo@{ks\+Algo}!Convex\+Hull@{Convex\+Hull}}
+\subsubsection{\texorpdfstring{ks\+Algo()}{ksAlgo()}}
+{\footnotesize\ttfamily vector$<$ pair$<$ int, int $>$ $>$ Convex\+Hull\+::ks\+Algo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Implementation of Kirkpatrick-\/\+Seidel Algorithm -\/ Time Complexity -\/ O(n$\ast$log(h)) -\/ n = number of vertices, h = number of points in hull \begin{DoxyReturn}{Returns}
+\mbox{[}vector of edges represented as a pair of verices\mbox{]} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Convex\+Hull.\+h\item 
+Convex\+Hull.\+cpp\item 
+K\+S\+Algo.\+h\end{DoxyCompactItemize}
