@@ -22,12 +22,16 @@ class ConvexHull
 {
 private:
 	vector<Node> points;
+	vector<int> UPPERHULL(int umin,int umax,vector< pair<double,int> > T);
+	pair<int,int> UPPERBRIDGE(vector< pair<double,int> > T,int median);
+	int turn_check(int p, int q, int r);
+	double eudist(int a,int b);
+	int min;
 public:
 	ConvexHull(vector<Node> v);
 	vector< pair<int,int> > grahamScan();
 	vector< pair<int,int> > jarvisMarch();
-	void ksAlgo();
-	int turn_check(int p, int q, int r);
-	double eudist(int a,int b);
+	vector< pair<int,int> > ksAlgo();
+	
 };
 

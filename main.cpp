@@ -6,8 +6,9 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-	ifstream input ("coords1.txt");
+	ifstream input (argv[1]);
 
+	//No of points input
 	int n;
 	input >> n;
 
@@ -17,21 +18,23 @@ int main(int argc, char const *argv[])
 	for (int i = 0; i < n; ++i)
 	{
 		input >> x >> y;
-		Node baby(x,y);
-		points.push_back(baby);
+		Node point(x,y);
+		points.push_back(point);
 	}
-
 	input.close();
 
 	ConvexHull ch(points);
-	vector< pair<int,int> > edges = ch.jarvisMarch();
+	vector< pair<int,int> > edges = ch.ksAlgo();
+
+	
 
 	ofstream out ("ans1.txt");
-
 	for (vector<pair<int,int>>::iterator i = edges.begin(); i != edges.end(); ++i)
 	{
 		out << (*i).first << " " << (*i).second << endl;
 	}
+	out.close();
+
 
 	cout << "BUBYEE \n" ;
 	return 0;

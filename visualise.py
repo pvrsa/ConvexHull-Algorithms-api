@@ -12,5 +12,7 @@ plt.scatter(x,y)
 
 plt.plot(x[edges.T], y[edges.T], 'r-')
 
+for x in range(m.shape[0]):
+	plt.text(m[x,0] + 0.05,m[x,1]+0.05,str(x))
 
 plt.show()
